@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndPoint>
+    <name>default</name>
+    <url>https://httpbin.org</url>
+    <provider_id>NONE</provider_id>
+    <isDefault>true</isDefault>
+    <properties/>
+    <faultRules/>
+    <preFlow>
+        <name>PreFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>setVariables</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>getOAuthCreds</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>Authorization</policy_name>
+                    <condition> </condition>
+                    <sequence>3</sequence>
+                </step>
+            </steps>
+        </request>
+        <response>
+            <isRequest>true</isRequest>
+            <steps/>
+        </response>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>setTokenURLnCred</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+            </steps>
+        </request>
+        <response>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>readaccesstoken</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>cacheaccesstoken</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+            </steps>
+        </response>
+    </postFlow>
+    <conditionalFlows/>
+</TargetEndPoint>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy>
+    <name>Get_OAuthToken</name>
+    <title>Fetch OAuth AccessToken</title>
+    <description>&lt;p&gt;This Proxy is to fetch an OAUTH Access token using &lt;a href="https://tools.ietf.org/html/rfc6749#section-4.4" rel="nofollow"&gt;OAUTH - Client Credentials&lt;/a&gt; Grant Type and Cache the token for expiry duration.&lt;/p&gt;</description>
+    <service_code>REST</service_code>
+    <life_cycle>
+        <changed_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</changed_by>
+        <created_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</created_by>
+    </life_cycle>
+    <proxyEndPoints>
+        <proxyEndPoint>
+            <proxyEndPointName>default</proxyEndPointName>
+            <apiResourceName>SWAGGER_JSON</apiResourceName>
+        </proxyEndPoint>
+    </proxyEndPoints>
+    <targetEndPoints>
+        <targetEndPoint>default</targetEndPoint>
+    </targetEndPoints>
+    <policies>
+        <policy type="ServiceCallout">acquireToken</policy>
+        <policy type="Javascript">checkSharedSecret</policy>
+        <policy type="AssignMessage">setTokenURLnCred</policy>
+        <policy type="ExtractVariable">readaccesstoken</policy>
+        <policy type="Javascript">setVariables</policy>
+        <policy type="BasicAuth">Authorization</policy>
+        <policy type="KeyValueMapOperations">getOAuthCreds</policy>
+        <policy type="KeyValueMapOperations">getSharedSecret</policy>
+        <policy type="RaiseFault">defaultRaiseFaultPolicy</policy>
+        <policy type="PopulateCache">cacheaccesstoken</policy>
+    </policies>
+    <fileResources>
+        <fileResource type="js">setVariables</fileResource>
+        <fileResource type="js">checkSharedSecret</fileResource>
+    </fileResources>
+</APIProxy>

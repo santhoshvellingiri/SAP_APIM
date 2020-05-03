@@ -1,0 +1,7 @@
+<BasicAuthentication async='true' continueOnError='false' enabled='true' xmlns='http://www.sap.com/apimgmt'>
+	<Operation>Encode</Operation>
+	<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+	<User ref='private.authserver.clientID'></User>
+	<Password ref='private.authserver.clientSecret'></Password>
+	<AssignTo createNew="true">sapapim.auth</AssignTo>
+</BasicAuthentication>

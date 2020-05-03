@@ -1,0 +1,18 @@
+<KeyValueMapOperations mapIdentifier="OAuthCreds" async="true" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<Get assignTo="private.authserver.clientID">
+		<Key>
+			<Parameter ref="authserver.ClientID"></Parameter>
+		</Key>
+	</Get>
+	<Get assignTo="private.authserver.clientSecret">
+		<Key>
+			<Parameter ref="authserver.ClientSecret"></Parameter>
+		</Key>
+	</Get>
+	<Get assignTo="private.authserver.tURL">
+		<Key>
+			<Parameter ref="authserver.tURL"></Parameter>
+		</Key>
+	</Get>
+	<Scope>environment</Scope>
+</KeyValueMapOperations>

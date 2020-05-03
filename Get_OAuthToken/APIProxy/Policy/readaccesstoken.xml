@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+    <JSONPayload>
+        <Variable name="sapapim.accessToken" type="string">
+            <JSONPath>$.access_token</JSONPath>
+        </Variable>
+        <Variable name="sapapim.expiresIn" type="integer">
+            <JSONPath>$.expires_in</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source>message.content</Source>
+</ExtractVariables>
