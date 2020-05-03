@@ -1,0 +1,12 @@
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+    <Remove>
+        <Headers/>
+    </Remove>
+	<Set>
+		<Headers>
+			<Header name="Authorization">Bearer {sapapim.accessToken}</Header>
+		</Headers>
+	</Set>
+	<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+	<AssignTo createNew="false" type="request">request</AssignTo>
+</AssignMessage>

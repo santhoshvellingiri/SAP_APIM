@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy>
+    <name>Demo_MainAPIProxy</name>
+    <title>Demo API Proxy</title>
+    <description> </description>
+    <service_code>REST</service_code>
+    <life_cycle>
+        <changed_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</changed_by>
+        <created_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</created_by>
+    </life_cycle>
+    <proxyEndPoints>
+        <proxyEndPoint>
+            <proxyEndPointName>default</proxyEndPointName>
+            <apiResourceName>SWAGGER_JSON</apiResourceName>
+        </proxyEndPoint>
+    </proxyEndPoints>
+    <targetEndPoints>
+        <targetEndPoint>default</targetEndPoint>
+    </targetEndPoints>
+    <policies>
+        <policy type="LookupCache">lookupAccessToken</policy>
+        <policy type="AssignMessage">setAuthHeader</policy>
+        <policy type="ServiceCallout">fetchAccessToken</policy>
+        <policy type="KeyValueMapOperations">getSharedSecret</policy>
+        <policy type="RaiseFault">defaultRaiseFaultPolicy</policy>
+    </policies>
+    <fileResources/>
+</APIProxy>
