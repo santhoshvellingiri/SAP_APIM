@@ -1,0 +1,16 @@
+<ServiceCallout async="true" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<Request>
+		<Set>
+		    <Headers>
+				<Header name="tenant">scpdev</Header>
+				<Header name="secret">{private.shared.secret}</Header>
+			</Headers>
+			<Verb>POST</Verb>
+		</Set>
+	</Request>
+	<Response>sapapim.oauth.response</Response>
+	<Timeout>15000</Timeout>
+	<LocalTargetConnection>
+   	    <Path>/p318236trial/get/oauth</Path>
+	</LocalTargetConnection>
+</ServiceCallout>
