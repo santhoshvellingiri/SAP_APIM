@@ -1,0 +1,23 @@
+# ─────────────────────────────────────────────────────────
+# Config for: sample-validate-request.js
+# Flow: PreFlow / Request
+# ─────────────────────────────────────────────────────────
+
+# ── Inputs ──────────────────────────────────────────────
+# Comment/uncomment lines to test different scenarios
+
+# Valid request (all fields present):
+request.header.x-correlation-id = abc-123
+request.queryparam.startDate = 2024-01-15
+
+# Missing correlation-id (uncomment to test):
+# request.queryparam.startDate = 2024-01-15
+
+# Wrong date format (uncomment to test):
+# request.header.x-correlation-id = abc-123
+# request.queryparam.startDate = 15-01-2024
+
+# ── Outputs ─────────────────────────────────────────────
+OUTPUT: validation.passed
+OUTPUT: validation.fault
+OUTPUT: validation.errors

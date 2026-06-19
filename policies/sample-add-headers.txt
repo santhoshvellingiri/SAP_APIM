@@ -1,0 +1,16 @@
+# ─────────────────────────────────────────────────────────
+# Config for: sample-add-headers.js
+# Flow: PostFlow / Response
+# ─────────────────────────────────────────────────────────
+
+# ── Inputs ──────────────────────────────────────────────
+# Simulated backend response
+response.content = {"id": 42, "name": "Alice"}
+targetResponse.status = 200
+targetResponse.status.message = OK
+
+# ── Outputs ─────────────────────────────────────────────
+# Only these variables will be printed after the policy runs
+OUTPUT: response.header.X-Powered-By
+OUTPUT: response.header.X-Backend-Status
+OUTPUT: response.content

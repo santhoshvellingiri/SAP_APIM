@@ -1,0 +1,10 @@
+# ── Inputs ──────────────────────────────────────────────
+response.content = {"Message":" No data found, try to search with receipt number".}
+targetResponse.status = 200
+targetResponse.status.message = OK
+
+# ── Outputs ─────────────────────────────────────────────
+# Only these variables will be printed after the policy runs
+OUTPUT: response.header.X-Powered-By
+OUTPUT: response.header.X-Backend-Status
+OUTPUT: response.content
