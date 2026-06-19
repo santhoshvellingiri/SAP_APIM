@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+    <Remove>
+        <Headers>
+        </Headers>
+    </Remove>
+    <Set>
+        <Headers>
+            <Header name="Authorization">{sapapim.auth}</Header>
+            <Header name="Content-Type">application/x-www-form-urlencoded</Header>
+        </Headers>
+        <FormParams>      
+			<FormParam name="grant_type">client_credentials</FormParam>
+		</FormParams>
+    </Set>
+    <AssignVariable>   
+          <Name>target.url</Name>   
+          <Ref>private.authserver.tURL</Ref>                              
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" type="request">request</AssignTo>
+</AssignMessage>

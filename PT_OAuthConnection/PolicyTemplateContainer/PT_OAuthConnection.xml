@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PolicyTemplateContainer>
+    <name>PT_OAuthConnection</name>
+    <version>1</version>
+    <title>OAuth Client Credentials Grant</title>
+    <description>Policies to acquire OAuth token from a Shared Flow and read it from Cache for Connectivity</description>
+    <proxyEndPointxml>&lt;preFlow&gt;&lt;name&gt;PreFlow&lt;/name&gt;&lt;request&gt;&lt;isRequest&gt;true&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/request&gt;&lt;response&gt;&lt;isRequest&gt;false&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/response&gt;&lt;/preFlow&gt;&lt;postFlow&gt;&lt;name&gt;PostFlow&lt;/name&gt;&lt;request&gt;&lt;isRequest&gt;true&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/request&gt;&lt;response&gt;&lt;isRequest&gt;false&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/response&gt;&lt;/postFlow&gt;</proxyEndPointxml>
+    <life_cycle>
+        <changed_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</changed_by>
+        <created_by>santhosh.vellingiri_outlook.com#EXT#@santhoshvellingirioutlook.onmicrosoft.com</created_by>
+    </life_cycle>
+    <targetEndPointxml>&lt;preFlow&gt;&lt;name&gt;PreFlow&lt;/name&gt;&lt;request&gt;&lt;isRequest&gt;true&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/request&gt;&lt;response&gt;&lt;isRequest&gt;false&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/response&gt;&lt;/preFlow&gt;&lt;postFlow&gt;&lt;name&gt;PostFlow&lt;/name&gt;&lt;request&gt;&lt;isRequest&gt;true&lt;/isRequest&gt;&lt;steps&gt;&lt;step&gt;&lt;policy_name&gt;fetchAccessToken&lt;/policy_name&gt;&lt;condition&gt;lookupcache.lookupAccessToken.cachehit = false&lt;/condition&gt;&lt;sequence&gt;3&lt;/sequence&gt;&lt;/step&gt;&lt;step&gt;&lt;policy_name&gt;lookupAccessToken&lt;/policy_name&gt;&lt;condition&gt; &lt;/condition&gt;&lt;sequence&gt;1&lt;/sequence&gt;&lt;/step&gt;&lt;step&gt;&lt;policy_name&gt;setAuthHeader&lt;/policy_name&gt;&lt;condition&gt; &lt;/condition&gt;&lt;sequence&gt;5&lt;/sequence&gt;&lt;/step&gt;&lt;step&gt;&lt;policy_name&gt;getSharedSecret&lt;/policy_name&gt;&lt;condition&gt;lookupcache.lookupAccessToken.cachehit = false&lt;/condition&gt;&lt;sequence&gt;2&lt;/sequence&gt;&lt;/step&gt;&lt;step&gt;&lt;policy_name&gt;lookupAccessToken&lt;/policy_name&gt;&lt;condition&gt;lookupcache.lookupAccessToken.cachehit = false&lt;/condition&gt;&lt;sequence&gt;4&lt;/sequence&gt;&lt;/step&gt;&lt;/steps&gt;&lt;/request&gt;&lt;response&gt;&lt;isRequest&gt;false&lt;/isRequest&gt;&lt;steps&gt;&lt;/steps&gt;&lt;/response&gt;&lt;/postFlow&gt;</targetEndPointxml>
+    <policies>
+        <policy type="LookupCache">lookupAccessToken</policy>
+        <policy type="KeyValueMapOperations">getSharedSecret</policy>
+        <policy type="AssignMessage">setAuthHeader</policy>
+        <policy type="ServiceCallout">fetchAccessToken</policy>
+    </policies>
+    <fileResources/>
+</PolicyTemplateContainer>

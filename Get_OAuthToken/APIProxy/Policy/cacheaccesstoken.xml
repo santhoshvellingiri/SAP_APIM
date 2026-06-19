@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+    <CacheKey>
+        <Prefix>OAUTH</Prefix>
+        <KeyFragment ref="req.tenant"></KeyFragment>
+    </CacheKey>
+    <Scope>Global</Scope>
+    <ExpirySettings>
+        <TimeoutInSec ref="sapapim.expiresIn"></TimeoutInSec>
+    </ExpirySettings>
+    <Source>sapapim.accessToken</Source>
+</PopulateCache>

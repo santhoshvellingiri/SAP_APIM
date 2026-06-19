@@ -1,0 +1,15 @@
+<ServiceCallout async="true" continueOnError="true" enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<Request clearPayload="true">
+		<Set>
+			<Headers>
+				<Header name="Authorization">{sapapim.auth}</Header>
+			</Headers>
+			<Verb>POST</Verb>
+		</Set>
+	</Request>
+	<Response>oauth.Response</Response>
+	<Timeout>10000</Timeout>
+	<HTTPTargetConnection>
+		<URL>https://{private.authserver.tURL}?grant_type=client_credentials</URL>
+	</HTTPTargetConnection>
+</ServiceCallout>

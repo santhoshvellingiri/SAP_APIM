@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndPoint>
+    <name>default</name>
+    <url>https://httpbin.org/get</url>
+    <provider_id>NONE</provider_id>
+    <isDefault>true</isDefault>
+    <properties/>
+    <faultRules/>
+    <preFlow>
+        <name>PreFlow</name>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>fetchAccessToken</policy_name>
+                    <condition>lookupcache.lookupAccessToken.cachehit = false</condition>
+                    <sequence>3</sequence>
+                </step>
+                <step>
+                    <policy_name>lookupAccessToken</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>setAuthHeader</policy_name>
+                    <condition> </condition>
+                    <sequence>5</sequence>
+                </step>
+                <step>
+                    <policy_name>getSharedSecret</policy_name>
+                    <condition>lookupcache.lookupAccessToken.cachehit = false</condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>lookupAccessToken</policy_name>
+                    <condition>lookupcache.lookupAccessToken.cachehit = false</condition>
+                    <sequence>4</sequence>
+                </step>
+            </steps>
+        </request>
+    </postFlow>
+    <conditionalFlows/>
+</TargetEndPoint>
